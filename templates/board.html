@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+</head>
+<body>
+    <h2>📋 게시판</h2>
+
+    <form method="get" action="/board">
+        <input type="text" name="q" placeholder="검색어" value="{{ keyword }}">
+        <button type="submit">검색</button>
+    </form>
+
+    <p><a href="/board/write">글쓰기</a> | <a href="/mypage">마이페이지</a> | <a href="/logout">로그아웃</a></p>
+
+    {% if posts %}
+        <ul>
+        {% for post in posts %}
+            <li><a href="/board/{{ post[0] }}">{{ post[1] }}</a> - {{ post[3] }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>게시물이 없습니다.</p>
+    {% endif %}
+</body>
+</html>
