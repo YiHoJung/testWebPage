@@ -1,0 +1,1 @@
+<h2>게시판</h2>검색어: {{ keyword|safe }}<ul>{% for p in posts %}<li><a href='/board/{{p[0]}}'>{{ p[1] }}</a></li>{% endfor %}</ul><a href='/board/write'>글쓰기</a>
